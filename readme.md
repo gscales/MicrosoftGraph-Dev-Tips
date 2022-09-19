@@ -1,0 +1,1 @@
+This Repo is a scratchpad for different Dev tips for solving issues when coding against the Microsoft Graph, it contains small code snip its or quick explanations.
