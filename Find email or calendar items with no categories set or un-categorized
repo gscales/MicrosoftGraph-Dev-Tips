@@ -1,0 +1,12 @@
+You can do it using and Advanced query with filter https://docs.microsoft.com/en-us/graph/aad-advanced-queries?tabs=http eg
+
+ $filter=NOT(categories/any())&count=true
+
+or with the Graph SDK
+
+             var queryOptions = new List<QueryOption>()
+             {
+                 new QueryOption("$count", "true")
+             };
+             var uncatMessages = graphClient.Me.MailFolders["Inbox"].Messages.Request(queryOptions)
+                 .Header("ConsistencyLevel", "eventual").Filter("NOT(categories/any())").GetAsync().GetAwaiter().GetResult();
